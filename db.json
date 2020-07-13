@@ -1,0 +1,53 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "users": [
+    {
+      "id": 49,
+      "name": "rakesh",
+      "age": 35,
+      "salary": "200K"
+    },
+    {
+      "name": "rakesh",
+      "age": "35",
+      "salary": "200K",
+      "id": 401
+    },
+    {
+      "name": "rakesh",
+      "age": "35",
+      "salary": "200K",
+      "id": 501
+    },
+    {
+      "name": "rakesh",
+      "age": "35",
+      "salary": "200K",
+      "id": 601
+    },
+    {
+      "name": "rakesh",
+      "age": "35",
+      "salary": "200K",
+      "id": 701
+    },
+    {
+      "name": "rakesh",
+      "age": "35",
+      "salary": "200K",
+      "id": 801
+    },
+    {
+      "name": "rakesh",
+      "age": "35",
+      "salary": "200K",
+      "id": 901
+    }
+  ]
+}
