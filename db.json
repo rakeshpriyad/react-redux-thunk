@@ -8,46 +8,25 @@
   ],
   "users": [
     {
-      "id": 49,
-      "name": "rakesh",
-      "age": 35,
-      "salary": "200K"
+      "userName": "sadf",
+      "emailAddress": "sadf@sfaa.sdaf",
+      "address": "sdaf",
+      "mobileNo": "89787",
+      "id": 902
     },
     {
-      "name": "rakesh",
-      "age": "35",
-      "salary": "200K",
-      "id": 401
+      "userName": "sadf",
+      "emailAddress": "sadf@sfaa.sdaf",
+      "address": "sdaf",
+      "mobileNo": "89787",
+      "id": 903
     },
     {
-      "name": "rakesh",
-      "age": "35",
-      "salary": "200K",
-      "id": 501
-    },
-    {
-      "name": "rakesh",
-      "age": "35",
-      "salary": "200K",
-      "id": 601
-    },
-    {
-      "name": "rakesh",
-      "age": "35",
-      "salary": "200K",
-      "id": 701
-    },
-    {
-      "name": "rakesh",
-      "age": "35",
-      "salary": "200K",
-      "id": 801
-    },
-    {
-      "name": "rakesh",
-      "age": "35",
-      "salary": "200K",
-      "id": 901
+      "userName": "Mukesh",
+      "emailAddress": "sadf@sfaa.sdaf",
+      "address": "sdaf",
+      "mobileNo": "89787",
+      "id": 904
     }
   ]
 }
