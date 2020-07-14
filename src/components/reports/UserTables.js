@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState} from 'react';
+import { useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
@@ -45,9 +46,11 @@ const useStyles = makeStyles({
 });
 
 const UsersStickyHeadTable = (props) =>{
+  const {rows, edit} = props;
+  
   const classes = useStyles();
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(3);
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(3);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -76,14 +79,14 @@ const UsersStickyHeadTable = (props) =>{
             </TableRow>
           </TableHead>
           <TableBody>
-            {props.rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+            {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
               return (
-                <TableRow hover role="checkbox" tabIndex={-1} key={row.id}>
+                <TableRow hover role="checkbox" tabIndex={-1} key={row.id} area-checked="true">
                   {columns.map((column) => {
                     if(column.id === 'edit'){
                       return (
                         <TableCell key={column.id} align={column.align}>
-                            <button >Edit</button>
+                            <button onClick ={ () => edit(true)}>Edit</button>
                         </TableCell>
                       );
                     }if(column.id === 'delete'){
@@ -110,7 +113,7 @@ const UsersStickyHeadTable = (props) =>{
       <TablePagination
         rowsPerPageOptions={[3, 5, 10,20]}
         component="div"
-        count={props.rows.length}
+        count={rows.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onChangePage={handleChangePage}
@@ -127,4 +130,5 @@ const mapStateToProps = state => {
 };
 
 
-export default connect(mapStateToProps)(UsersStickyHeadTable);
+//export default connect(mapStateToProps)(UsersStickyHeadTable);
+export default connect( mapStateToProps)(UsersStickyHeadTable);

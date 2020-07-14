@@ -118,3 +118,7 @@ export function  submitSaveUser(user) {
 };
 
  
+export const setEditing = (isEdit) => ({
+    type: actions.SET_EDIT,
+    payload: isEdit
+});

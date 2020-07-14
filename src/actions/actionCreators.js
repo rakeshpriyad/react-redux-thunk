@@ -8,5 +8,6 @@ export const FIND_USERS ="FIND_USERS";
 export const FETCHED_USERS ="FETCHED_USERS";
 export const LOADING_USERS ="LOADING_USERS"
 export const SAVE_USER ="SAVE_USER"
+export const SET_EDIT ="SET_EDIT"
 export const URL ='http://localhost:3000/'
 

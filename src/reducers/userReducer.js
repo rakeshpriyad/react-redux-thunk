@@ -56,12 +56,23 @@ export const fetchUsersReducer = (oldState = [], action) => {
          return oldState
       }
  }
+ 
  export const loadingUserReducer = (oldState = "false", action) => {
     switch (action.type) {
        case acttions.FETCHED_USERS:
           return false
        case acttions.LOADING_USERS:
           return true
+       default:
+          return oldState
+    }
+ }
+
+ export const editUserReducer = (oldState = "false", action) => {
+     console.log("editing user "+ action.payload)
+    switch (action.type) {
+       case acttions.SET_EDIT:
+          return action.payload
        default:
           return oldState
     }
