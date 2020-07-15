@@ -7,7 +7,7 @@ function Header() {
       <NavLink exact activeClassName="active" to="/">
         Home
       </NavLink>
-      <NavLink activeClassName="active" to="/users">
+      <NavLink activeClassName="active" to="/User">
         Users
       </NavLink>
       <NavLink activeClassName="active" to="/contact">
