@@ -1,4 +1,4 @@
-import * as actions from './actionCreators'
+import * as actions from './userActionCreators'
 
 export const createUser = (name, age, salary) => {
     return { name, age, salary }
@@ -35,17 +35,17 @@ export const findUsers = () => {
 
 //======= Thunk call fetch api==============
 
-function fetchedUsers(users) {
+const fetchedUsers = (users) =>{
    return { 
         type: actions.FETCHED_USERS, 
         payload: users 
 }
 } 
-function loadingUsers() {
+const loadingUsers= () => {
    return { type: actions.LOADING_USERS }
 } 
 export const URL ='http://localhost:3000/'
-export function fetchingUsers() {
+export const fetchingUsers = () => {
    return (dispatch) => {
       dispatch(loadingUsers())
       fetch(actions.URL+'users/')
@@ -63,7 +63,7 @@ export const saveUser = (user) => ({
 });
 
 
-export function  submitSaveUser(user) {
+export const submitSaveUser = (user) =>{
     console.log("Saving.."+JSON.stringify(user));
     return (dispatch) => {
             fetch('http://localhost:3000/users/', {
@@ -85,7 +85,7 @@ export function  submitSaveUser(user) {
     
  } 
 
- export function submitUpdateUser(user){
+ export const submitUpdateUser =(user) =>{
    console.log(user.id);
     return (dispatch) => {
        
@@ -102,6 +102,7 @@ export function  submitSaveUser(user) {
                 } else {
                     console.log("update result "+ result)
                     dispatch(updateUser(user));
+                    dispatch(fetchingUsers());
                 }
         }).catch(error => console.error(error));
     }
@@ -116,9 +117,13 @@ export function  submitSaveUser(user) {
         })
     }
 };
-
  
 export const setEditing = (isEdit) => ({
     type: actions.SET_EDIT,
     payload: isEdit
+});
+
+export const setEditUser = (user) => ({
+    type: actions.SET_EDIT_USER,
+    payload: user
 });

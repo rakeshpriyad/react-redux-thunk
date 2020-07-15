@@ -1,5 +1,4 @@
 import React, { useState} from 'react';
-import { useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
@@ -46,7 +45,7 @@ const useStyles = makeStyles({
 });
 
 const UsersStickyHeadTable = (props) =>{
-  const {rows, edit} = props;
+  const {rows, edit, editUser} = props;
   
   const classes = useStyles();
   const [page, setPage] = useState(0);
@@ -60,6 +59,11 @@ const UsersStickyHeadTable = (props) =>{
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+
+  const handleEdit = (editing, user) => {
+    editUser(user);
+    edit(editing);
+  }
 
   return (
     <Paper className={classes.root}>
@@ -86,7 +90,7 @@ const UsersStickyHeadTable = (props) =>{
                     if(column.id === 'edit'){
                       return (
                         <TableCell key={column.id} align={column.align}>
-                            <button onClick ={ () => edit(true)}>Edit</button>
+                            <button onClick ={ () => handleEdit(true, row)}>Edit</button>
                         </TableCell>
                       );
                     }if(column.id === 'delete'){

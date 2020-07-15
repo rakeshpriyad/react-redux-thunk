@@ -1,4 +1,4 @@
-import * as acttions from '../actions/actionCreators'
+import * as acttions from '../actions/userActionCreators'
 const insState =[]
 let lastId = 0;
 const userReducer = (state = insState, action) =>{
@@ -21,7 +21,7 @@ const userReducer = (state = insState, action) =>{
         ]
     }else if(action.type === acttions.UPDATE_USER){
         console.log("=update=="+state)
-       /*  return state.map((user) => {
+        return state.map((user) => {
             if (user.id === action.payload.id) {
                 return {
                     ...user,
@@ -30,12 +30,12 @@ const userReducer = (state = insState, action) =>{
             } else {
                 return user;
             }
-        }); */
-        return state;
+        });
+        //return state;
     }else if(action.type === acttions.FIND_USERS){
         console.log("=find=="+state)
-        //return state.filter( user => user.id === action.payload.id)
-        return state;
+        return state.filter( user => user.id === action.payload.id)
+        //return state;
     }else if(action.type === acttions.DELETE_USER){
         return state.filter( user => user.id !== action.payload.id)
     } else if(action.type === acttions.SAVE_USER){
@@ -68,7 +68,7 @@ export const fetchUsersReducer = (oldState = [], action) => {
     }
  }
 
- export const editUserReducer = (oldState = "false", action) => {
+ export const editingUserReducer = (oldState = "false", action) => {
      console.log("editing user "+ action.payload)
     switch (action.type) {
        case acttions.SET_EDIT:
@@ -77,5 +77,15 @@ export const fetchUsersReducer = (oldState = [], action) => {
           return oldState
     }
  }
+
+ export const editUserReducer = (oldState = [], action) => {
+    console.log("editing user "+ action.payload)
+   switch (action.type) {
+      case acttions.SET_EDIT_USER:
+         return action.payload
+      default:
+         return oldState
+   }
+}
 
 export default userReducer;
