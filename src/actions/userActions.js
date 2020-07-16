@@ -51,7 +51,7 @@ export const fetchingUsers = () => {
       fetch(actions.URL+'users/')
          .then(res => res.json())
          .then(users => {
-           console.log("users----"+ users)
+          // console.log("users----"+ users)
            dispatch(fetchedUsers(users))
         }).catch(error => console.error(error));
    }
@@ -86,7 +86,7 @@ export const submitSaveUser = (user) =>{
  } 
 
  export const submitUpdateUser =(user) =>{
-   console.log(user.id);
+   //console.log(user.id);
     return (dispatch) => {
        
             fetch(actions.URL+'users/'+user.id, {

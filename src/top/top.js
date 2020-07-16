@@ -10,10 +10,7 @@ const Top = () => {
         <div className="topnav">
             <Header />
         </div>
-        <div className="row">
-            <div className="column side">
-            </div>
-        </div>
+       
       </React.Fragment>
     );
 }

@@ -1,11 +1,11 @@
 import React from 'react'
-import { Field, reduxForm, SubmissionError} from 'redux-form';
+import { Field } from 'redux-form';
 import {FormLabel} from '../FormLabel';
 import '../../../App.css';
 import { renderField } from '../FormInputField'
 
 const EditUserFormGenerator = (props) => {
-    const {asyncValidating, handleSubmit, edit} = props;
+    const {handleSubmit, edit} = props;
     return (<form onSubmit={handleSubmit(fields => edit(fields))} id='form1' className='mLabForm'>
             <div className='form-row'>
                 <FormLabel labelName={'UserID'} fieldName={'User ID'} isRequire={true} />
@@ -29,7 +29,7 @@ const EditUserFormGenerator = (props) => {
                 <Field component={renderField} type='text' placeholder='Address' name='address' id='address' />
             </div>
             <div className={`submitBtn u-mt30 u-mb80`}>
-                <button type='submit' type="submit">Submit</button>
+                <button type="submit">Submit</button>
             </div>
             </form>)
 }

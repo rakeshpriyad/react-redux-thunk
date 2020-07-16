@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
@@ -16,22 +16,22 @@ const columns = [
   { id: 'userName', label: 'Name', minWidth: 100 },
   { id: 'emailAddress', label: 'Email', minWidth: 100 },
   { id: 'mobileNo', label: 'Contact #', minWidth: 100 },
-  { id: 'address',  label: 'Address', minWidth: 100  },
+  { id: 'address', label: 'Address', minWidth: 100 },
   {
     id: 'edit',
     label: '',
     minWidth: 70,
     align: 'right'
-    
+
   },
   {
     id: 'delete',
     label: '',
     minWidth: 70,
     align: 'right'
-    
+
   },
-  
+
 ];
 
 
@@ -44,9 +44,9 @@ const useStyles = makeStyles({
   },
 });
 
-const UsersStickyHeadTable = (props) =>{
-  const {rows, edit, editUser} = props;
-  
+const UsersStickyHeadTable = (props) => {
+  const { rows, edit, editUser } = props;
+
   const classes = useStyles();
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(3);
@@ -85,28 +85,28 @@ const UsersStickyHeadTable = (props) =>{
           <TableBody>
             {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
               return (
-                <TableRow hover role="checkbox" tabIndex={-1} key={row.id} area-checked="true">
+                <TableRow hover role="checkbox" aria-checked="false" tabIndex={-1} key={row.id} >
                   {columns.map((column) => {
-                    if(column.id === 'edit'){
+                    if (column.id === 'edit') {
                       return (
                         <TableCell key={column.id} align={column.align}>
-                            <button onClick ={ () => handleEdit(true, row)}>Edit</button>
+                          <button onClick={() => handleEdit(true, row)}>Edit</button>
                         </TableCell>
                       );
-                    }if(column.id === 'delete'){
+                    } if (column.id === 'delete') {
                       return (
                         <TableCell key={column.id} align={column.align}>
-                            <button >Delete</button>
+                          <button >Delete</button>
                         </TableCell>
                       );
-                    }else {
-                    const value = row[column.id];
-                    return (
-                      <TableCell key={column.id} align={column.align}>
-                        {column.format && typeof value === 'number' ? column.format(value) : value}
-                      </TableCell>
-                    );
-                  }
+                    } else {
+                      const value = row[column.id];
+                      return (
+                        <TableCell key={column.id} align={column.align}>
+                          {column.format && typeof value === 'number' ? column.format(value) : value}
+                        </TableCell>
+                      );
+                    }
                   })}
                 </TableRow>
               );
@@ -115,7 +115,7 @@ const UsersStickyHeadTable = (props) =>{
         </Table>
       </TableContainer>
       <TablePagination
-        rowsPerPageOptions={[3, 5, 10,20]}
+        rowsPerPageOptions={[3, 5, 10, 20]}
         component="div"
         count={rows.length}
         rowsPerPage={rowsPerPage}
@@ -129,10 +129,8 @@ const UsersStickyHeadTable = (props) =>{
 
 const mapStateToProps = state => {
   return {
-   rows: state.users
+    rows: state.users
   }
 };
 
-
-//   export default connect(mapStateToProps)(UsersStickyHeadTable);
-export default connect( mapStateToProps)(UsersStickyHeadTable);
+export default connect(mapStateToProps)(UsersStickyHeadTable);

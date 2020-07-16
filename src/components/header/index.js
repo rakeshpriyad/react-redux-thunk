@@ -13,6 +13,14 @@ function Header() {
       <NavLink activeClassName="active" to="/contact">
         Contact
       </NavLink>
+
+      <NavLink exact activeClassName="active" to="/U">
+        U
+      </NavLink>
+
+      <NavLink exact activeClassName="active" to="/A">
+        A
+      </NavLink>
     </nav>
   );
 }

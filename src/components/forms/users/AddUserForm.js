@@ -1,5 +1,5 @@
-import React from 'react'
-import { Field, reduxForm, SubmissionError} from 'redux-form';
+//import { Field, reduxForm, SubmissionError} from 'redux-form';
+import { reduxForm} from 'redux-form';
 import { submitSaveUser } from '../../../actions/userActions';
 import { connect } from 'react-redux';
 import AddUserFormGenerator from './AddUserFormGenerator'

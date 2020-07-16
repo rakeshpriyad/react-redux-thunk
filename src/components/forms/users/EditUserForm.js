@@ -1,10 +1,8 @@
-import React from 'react'
-import { Field, reduxForm, SubmissionError} from 'redux-form';
+import { reduxForm } from 'redux-form';
 import '../../../App.css';
 import { submitUpdateUser } from '../../../actions/userActions';
 import { connect } from 'react-redux';
 import EditUserFormGenerator from './EditUserFormGenerator'
-
 
 const EditUserForm = reduxForm({
     form: 'EditUserForm',
@@ -19,7 +17,7 @@ function mapStateToProps(state) {
             emailAddress: state.editUser.emailAddress,
             mobileNo: state.editUser.mobileNo,
             address: state.editUser.address
-          }
+        }
     };
 }
 
