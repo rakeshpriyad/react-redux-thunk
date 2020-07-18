@@ -4,13 +4,16 @@ import { Field } from 'redux-form';
 import { FormLabel } from '../FormLabel';
 import '../../../App.css';
 import { renderField } from '../FormInputField'
-//import { submitSaveUser } from '../../../actions/userActions';
+import validateAndSubmit from './UserFormValidation';
 //import { connect } from 'react-redux';
+
 
 const AddUserFormGenerator = (props) => {
     //const { asyncValidating, handleSubmit, submitUserAction, submitLoadUserAction, pristine, submitting, reset, user } = props;
+     {/*<form onSubmit={handleSubmit(fields => props.save(fields))} id='form1' className='mLabForm'> */}
     const { handleSubmit } = props;
-    return (<form onSubmit={handleSubmit(fields => props.save(fields))} id='form1' className='mLabForm'>
+    return (
+        <form onSubmit={handleSubmit(fields => validateAndSubmit(fields, props.save))} id='form1' className='mLabForm'>
         <div className='form-row'>
             <FormLabel labelName={'User Name'} fieldName={'User Name'} isRequire={true} />
             <Field component={renderField} type='text' placeholder='User Name' name='userName' id='userName' />
