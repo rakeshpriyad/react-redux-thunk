@@ -1,5 +1,6 @@
 import React, { useEffect,  Fragment } from 'react';
-import { fetchingUsers, setEditing, setEditUser } from '../../../actions/userActions';
+import { fetchingUsers } from '../../../api/api';
+import { setEditing, setEditUser } from '../../../actions/userActions';
 import { connect } from 'react-redux';
 import UserTables from '../../../components/reports/UserTables'
 import AddUserForm from './AddUserForm';

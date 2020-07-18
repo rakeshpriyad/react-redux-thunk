@@ -1,6 +1,7 @@
 import { reduxForm } from 'redux-form';
 import '../../../App.css';
-import { submitUpdateUser } from '../../../actions/userActions';
+//import { submitUpdateUser } from '../../../actions/userActions';
+import { submitUpdateUser } from '../../../api/api';
 import { connect } from 'react-redux';
 import EditUserFormGenerator from './EditUserFormGenerator'
 

@@ -1,6 +1,7 @@
 //import { Field, reduxForm, SubmissionError} from 'redux-form';
 import { reduxForm} from 'redux-form';
-import { submitSaveUser } from '../../../actions/userActions';
+//import { submitSaveUser } from '../../../actions/userActions';
+import { submitSaveUser } from '../../../api/api';
 import { connect } from 'react-redux';
 import AddUserFormGenerator from './AddUserFormGenerator'
 
