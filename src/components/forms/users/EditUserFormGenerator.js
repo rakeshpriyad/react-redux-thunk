@@ -3,10 +3,11 @@ import { Field } from 'redux-form';
 import {FormLabel} from '../FormLabel';
 import '../../../App.css';
 import { renderField } from '../FormInputField'
+import validateAndSubmit from './UserFormValidation';
 
 const EditUserFormGenerator = (props) => {
     const {handleSubmit, edit} = props;
-    return (<form onSubmit={handleSubmit(fields => edit(fields))} id='form1' className='mLabForm'>
+    return (<form onSubmit={handleSubmit(fields => validateAndSubmit(fields, props.edit))} id='form1' className='mLabForm'>
             <div className='form-row'>
                 <FormLabel labelName={'UserID'} fieldName={'User ID'} isRequire={true} />
                 <Field component={renderField} type='text' placeholder='User Id' name='id' id='id' />
